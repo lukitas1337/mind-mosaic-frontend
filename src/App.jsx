@@ -1,11 +1,22 @@
 import { BlogCardsView } from "./components/BlogCardsView";
-import { testPosts } from "./testPosts";
+import { useEffect, useState } from "react";
+import { PostDetailPage } from "./PostDetailPage";
 
 const App = () => {
+    const [posts, setPosts] = useState([]);
+
+    useEffect(() => {
+        fetch("http://localhost:5001/api/v1/blogPosts")
+            .then(response => response.json())
+            .then(setPosts)
+            .catch(error => console.error(error))
+    }, [])
 
     return (
         <div className="font-bold underline">
-            <BlogCardsView posts={testPosts} />
+            <BlogCardsView posts={posts} />
+
+            <PostDetailPage />
         </div>
     )
 }
