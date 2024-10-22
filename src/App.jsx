@@ -1,6 +1,10 @@
+import Navbar from "./components/Navbar"
+
 const App = () => {
   return (
-    <div className="font-bold underline">App</div>
+    <>
+    <Navbar />
+    </>
   )
 }
 
