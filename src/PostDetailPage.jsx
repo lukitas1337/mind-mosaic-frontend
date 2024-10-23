@@ -13,12 +13,21 @@ export const PostDetailPage = () => {
     }, [])
 
     return post && (
-        <div className="bg-white rounded-lg shadow-lg p-6 m-4 max-w-xs">
-            <h1 className="text-xl font-bold mt-4">
-                {post.title}
-            </h1>
-            <p className="mt-4">{post.content}</p>
-            <p className="text-sm text-gray-600">{new Date(post.date).toLocaleDateString()}</p>
+        <div className="bg-black text-white rounded-sm  font-monda p-6 m-4 max-w-xs">
+            <div className="border p-6 m-4">
+                <h1 className="text-xl font-bold mt-4">
+                    {post.name}
+                </h1>
+                <p className="text-sm text-gray-600">
+                    {post.author}
+                </p>
+                <p className="mt-4 ">
+                    {post.content}
+                </p>
+                <p className="text-sm text-gray-600">
+                    {new Date(post.date).toLocaleDateString()}
+                </p>
+            </div>
         </div>
     )
 }

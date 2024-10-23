@@ -1,5 +1,5 @@
 export const BlogCard = ({ name, author, content, date, readMoreButton, onClicked }) => (
-    <div className="bg-white rounded-sm shadow-lg p-6 m-4 font-monda max-w-xs">
+    <div className="bg-white rounded-sm shadow-lg p-6 m-12 font-monda max-w-xs">
         <h1 className="text-xl font-bold  mt-4">
             {name}
         </h1>
@@ -8,11 +8,11 @@ export const BlogCard = ({ name, author, content, date, readMoreButton, onClicke
 
         <p className="text-sm text-gray-600">{new Date(date).toLocaleDateString()}</p>
         <button
-            className="text-white bg-black font-bold py-2 px-4 mt-2 shadow-md hover:bg-white hover:text-black hover:shadow-lg focus:outline-none transition-all duration-300"
+            className="text-white text-sm bg-black font-bold py-2 px-4 mt-2 shadow-md hover:bg-white hover:text-black hover:shadow-lg focus:outline-none transition-all duration-300"
             onClick={onClicked}
             onClick={() => onClicked()}
         >
-            {readMoreButton || "Read more..."}
+            {readMoreButton || "READ MORE..."}
         </button>
     </div >
 );
