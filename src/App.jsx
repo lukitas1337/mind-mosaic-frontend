@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { BlogCardsView } from "./components/BlogCardsView";
 import { useEffect, useState } from "react";
-import { PostDetailPage } from "./PostDetailPage";
+import { PostDetailPage } from "./components/PostDetailPage";
 
 const App = () => {
     const [posts, setPosts] = useState([]);
