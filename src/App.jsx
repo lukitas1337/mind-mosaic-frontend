@@ -1,3 +1,4 @@
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { BlogCardsView } from "./components/BlogCardsView";
 import { useEffect, useState } from "react";
 import { PostDetailPage } from "./PostDetailPage";
@@ -13,12 +14,18 @@ const App = () => {
     }, [])
 
     return (
-        <div>
-            <BlogCardsView posts={posts} />
-
-            <PostDetailPage />
-        </div>
-    )
+        <Router>
+            <Routes>
+                <Route
+                    path="/blog"
+                    element={<BlogCardsView posts={posts} />}
+                />
+                <Route
+                    path="/post/:id"
+                    element={<PostDetailPage />}
+                />
+            </Routes>
+        </Router>
+    );
 }
-
-export default App
+export default App;

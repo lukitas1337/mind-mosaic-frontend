@@ -10,7 +10,6 @@ export const BlogCard = ({ name, author, content, date, readMoreButton, onClicke
         <button
             className="text-white text-sm bg-black font-bold py-2 px-4 mt-2 shadow-md hover:bg-white hover:text-black hover:shadow-lg focus:outline-none transition-all duration-300"
             onClick={onClicked}
-            onClick={() => onClicked()}
         >
             {readMoreButton || "READ MORE..."}
         </button>
