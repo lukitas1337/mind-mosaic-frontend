@@ -13,7 +13,7 @@ const App = () => {
     }, [])
 
     return (
-        <div className="font-bold underline">
+        <div>
             <BlogCardsView posts={posts} />
 
             <PostDetailPage />

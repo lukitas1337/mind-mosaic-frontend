@@ -13,7 +13,7 @@ export const BlogCardsView = ({ posts }) => {
                     onClicked={() => {
                         // navigate to new route http://localhost:5173/post/123
                         // navigate(`/post/${post.id}`)
-                        console.log("navigate to new route:", `/post/${post.id}`);
+                        console.log("navigate to new route:", `/post/${post.id}/`);
                     }}
                 />
             ))}

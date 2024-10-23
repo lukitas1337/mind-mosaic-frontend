@@ -8,7 +8,7 @@ export const PostDetailPage = () => {
     useEffect(() => {
         fetch(`http://localhost:5001/api/v1/blogPosts/${id ?? 1}`)
             .then(response => response.json())
-            .then(setPost)
+            .then(data => setPost(data[0]))
             .catch(error => console.error(error))
     }, [])
 
