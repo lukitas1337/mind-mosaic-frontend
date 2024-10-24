@@ -1,5 +1,11 @@
+
+import daisyui from "daisyui";
+
+/** @type {import('tailwindcss').Config} */
+
 module.exports = {
-  content: ["./src/**/*.{html,jsx}"],
+  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
+  
   theme: {
     extend: {
       fontFamily: {
@@ -8,5 +14,5 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [daisyui],
 };

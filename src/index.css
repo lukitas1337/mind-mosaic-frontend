@@ -3,3 +3,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.inputGroup input:focus,
+textarea:focus {
+  outline-color: lightgrey;
+}

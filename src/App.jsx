@@ -1,3 +1,4 @@
+
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { BlogCardsView } from "./components/BlogCardsView";
 import { useEffect, useState } from "react";
@@ -29,4 +30,5 @@ const App = () => {
         </Router>
     );
 }
+
 export default App;
