@@ -1,24 +1,8 @@
-import { useReducer } from "react";
 import axios from "axios";
+import { usePosts } from "../contexts/PostContext";
 
-const initialState = { title: "", author: "", content: "" };
-function reducer(state, action) {
-    switch (action.type) {
-        case "setTitle":
-            return { ...state, title: action.payload };
-        case "setAuthor":
-            return { ...state, author: action.payload };
-        case "setContent":
-            return { ...state, content: action.payload };
-        default:
-            return state;
-    }
-}
 function CreateBlogForm() {
-    const [{ title, author, content }, dispatch] = useReducer(
-        reducer,
-        initialState
-    );
+    const { title, author, content, dispatch } = usePosts();
 
     async function createNewBlog(newBlog) {
         try {

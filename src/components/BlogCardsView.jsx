@@ -1,9 +1,10 @@
+import { usePosts } from "../contexts/PostContext";
 import BlogCard from "./BlogCard";
 import { useNavigate } from "react-router-dom";
 
-export const BlogCardsView = ({ posts }) => {
+export const BlogCardsView = () => {
     const navigate = useNavigate();
-
+    const { posts } = usePosts();
     return (
         <div className="grid grid-cols-1 p-6 md:grid-cols-3  gap-6 w-[70%]">
             {posts.map((post) => (

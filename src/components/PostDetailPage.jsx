@@ -1,13 +1,15 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import Navbar from "./Navbar";
+
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import EditBlogForm from "./EditBlogForm";
 
 export const PostDetailPage = () => {
     const { id } = useParams();
-    const [isLoading, setIsLoading] = useState();
+    const [isLoading, setIsLoading] = useState(false);
     const [post, setPost] = useState();
+    const [modalClose, setModalClose] = useState(false);
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -40,18 +42,23 @@ export const PostDetailPage = () => {
         navigate("/blog");
     }
 
+    function handleEdit(e) {
+        e.preventDefault();
+        console.log("editing...");
+        setModalClose(true);
+    }
+
     return isLoading ? (
         <div>
             <p>post is loading ...</p>
         </div>
     ) : (
-        <>
+        <div className="relative">
             {post && (
-                <>
-                    <Navbar />
+                <div>
                     <div className="bg-black text-white rounded-sm text-justify flex justify-center items-center flex-col  h-screen w-auto font-monda p-6 ">
                         <div
-                            className="border h-2/3 w-1/2 p-4"
+                            className="border h-2/3 w-1/2 p-6"
                             style={{
                                 display: "flex",
                                 flexDirection: "column",
@@ -73,9 +80,7 @@ export const PostDetailPage = () => {
                                 <button
                                     className="bg-black text-white text-sm border 
                                     hover:bg-white hover:text-black font-bold py-2 px-4  "
-                                    onClick={() =>
-                                        console.log("Edit button clicked")
-                                    }
+                                    onClick={handleEdit}
                                 >
                                     Edit
                                 </button>
@@ -89,7 +94,10 @@ export const PostDetailPage = () => {
                             </div>
                         </div>
                     </div>
-                </>
+                    {modalClose && (
+                        <EditBlogForm setModalClose={setModalClose} />
+                    )}
+                </div>
             )}
 
             {post === undefined && (
@@ -97,6 +105,6 @@ export const PostDetailPage = () => {
                     <p>no post available</p>
                 </div>
             )}
-        </>
+        </div>
     );
 };

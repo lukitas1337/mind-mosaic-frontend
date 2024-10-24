@@ -1,16 +1,15 @@
-  import { BlogCardsView } from "./BlogCardsView";
-  import CreateBlogForm from "./CreateBlogForm";
-  import Navbar from "./Navbar";
+import { BlogCardsView } from "./BlogCardsView";
+import CreateBlogForm from "./CreateBlogForm";
 
-  const Blog = ({ posts }) => {
-      return (
-          <div>
-              <div className="blogsContainer flex  bg-[#1e1e1e]">
-                  <BlogCardsView posts={posts} />
-                  <CreateBlogForm />
-              </div>
-          </div>
-      );
-  };
+const Blog = () => {
+    return (
+        <div>
+            <div className="blogsContainer flex  bg-[#1e1e1e]">
+                <BlogCardsView />
+                <CreateBlogForm />
+            </div>
+        </div>
+    );
+};
 
-  export default Blog;
+export default Blog;
