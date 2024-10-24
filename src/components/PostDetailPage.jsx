@@ -16,7 +16,7 @@ export const PostDetailPage = () => {
         setIsLoading(true);
         setPost(undefined);
 
-        fetch(`http://localhost:8000/api/v1/blogPosts/${id ?? 1}`)
+        fetch(`http://localhost:5001/api/v1/blogPosts/${id ?? 1}`)
             .then(async (response) => {
                 console.log("res", response);
                 if (response.status === 404) {
@@ -34,7 +34,7 @@ export const PostDetailPage = () => {
         e.preventDefault();
         async function deletePost(id) {
             const { data } = await axios.delete(
-                `http://localhost:8000/api/v1/blogPosts/${id}`
+                `http://localhost:5001/api/v1/blogPosts/${id}`
             );
             console.log(data);
         }
@@ -94,8 +94,12 @@ export const PostDetailPage = () => {
                             </div>
                         </div>
                     </div>
+
                     {modalClose && (
-                        <EditBlogForm setModalClose={setModalClose} />
+                        <EditBlogForm
+                            blogId={post.id}
+                            setModalClose={setModalClose}
+                        />
                     )}
                 </div>
             )}
