@@ -1,5 +1,4 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { BlogCardsView } from "./components/BlogCardsView";
 import { useEffect, useState } from "react";
 import { PostDetailPage } from "./components/PostDetailPage";
 import Navbar from "./components/Navbar";
@@ -23,7 +22,7 @@ const App = () => {
             <Navbar />
             <Routes>
                 <Route path="/" element={<Home />} />
-                <Route path="/blog" element={<BlogCardsView posts={posts} />} />
+                <Route path="/blogs" element={<Blog posts={posts} />} />
                 <Route path="/post/:id" element={<PostDetailPage />} />
                 <Route path="/contact" element={<Contact />} />
                 <Route path="/update/:id" element={<EditBlogForm />} />
