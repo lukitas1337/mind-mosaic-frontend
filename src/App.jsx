@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useEffect, useState } from "react";
+import axios from "axios";
 import { PostDetailPage } from "./components/PostDetailPage";
 import Navbar from "./components/Navbar";
 import Home from "./components/Home";
@@ -10,11 +11,19 @@ import EditBlogForm from "./components/EditBlogForm";
 const App = () => {
     const [posts, setPosts] = useState([]);
 
-    useEffect(() => {
-        fetch("http://localhost:8000/api/v1/blogPosts")
-            .then((response) => response.json())
-            .then(setPosts)
-            .catch((error) => console.error(error));
+    useEffect(function () {
+        async function getPosts() {
+            try {
+                const { data } = await axios.get(
+                    "http://localhost:8000/api/v1/blogPosts"
+                );
+
+                setPosts(data);
+            } catch (error) {
+                throw new Error(error);
+            }
+        }
+        getPosts();
     }, []);
 
     return (

@@ -5,7 +5,6 @@ import Navbar from "./Navbar";
 const Blog = ({ posts }) => {
     return (
         <div>
-            <Navbar />
             <div className="blogsContainer flex  bg-[#1e1e1e]">
                 <BlogCardsView posts={posts} />
                 <CreateBlogForm />
