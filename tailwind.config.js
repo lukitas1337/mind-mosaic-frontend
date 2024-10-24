@@ -1,12 +1,17 @@
-module.exports = {
-    content: ["./src/**/*.{html,jsx}"],
-    theme: {
-        extend: {
-            fontFamily: {
-                italiana: ['Italiana', 'serif'],
-                monda: ['Monda', 'sans-serif'],
-            },
-        },
+
+import daisyui from "daisyui";
+
+/** @type {import('tailwindcss').Config} */
+export default {
+  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
+  theme: {
+    extend: {
+      fontFamily: {
+        italiana: ["Italiana", "serif"],
+        monda: ["Monda", "sans-serif"],
+      },
     },
-    plugins: [],
-}
+  },
+  plugins: [daisyui],
+};
+
