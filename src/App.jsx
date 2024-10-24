@@ -2,6 +2,10 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { BlogCardsView } from "./components/BlogCardsView";
 import { useEffect, useState } from "react";
 import { PostDetailPage } from "./components/PostDetailPage";
+import Navbar from './components/Navbar';
+import Home from './components/Home';
+import Blog from './components/Blog';
+import Contact from './components/Contact';
 
 const App = () => {
     const [posts, setPosts] = useState([]);
@@ -15,15 +19,12 @@ const App = () => {
 
     return (
         <Router>
+            <Navbar />
             <Routes>
-                <Route
-                    path="/blog"
-                    element={<BlogCardsView posts={posts} />}
-                />
-                <Route
-                    path="/post/:id"
-                    element={<PostDetailPage />}
-                />
+              <Route path="/" element={<Home />} />
+              <Route path="/blog" element={<BlogCardsView posts={posts} />} />
+              <Route path="/post/:id" element={<PostDetailPage />} />
+              <Route path="/contact" element={<Contact />} />
             </Routes>
         </Router>
     );
