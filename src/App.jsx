@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import { PostDetailPage } from "./components/PostDetailPage";
 import Navbar from './components/Navbar';
 import Home from './components/Home';
-import Blog from './components/Blog';
 import Contact from './components/Contact';
 
 const App = () => {
