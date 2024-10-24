@@ -7,7 +7,7 @@ function CreateBlogForm() {
     async function createNewBlog(newBlog) {
         try {
             const { data } = await axios.post(
-                `http://localhost:8000/api/v1/blogPosts`,
+                `http://localhost:5001/api/v1/blogPosts`,
                 newBlog
             );
             console.log(data);

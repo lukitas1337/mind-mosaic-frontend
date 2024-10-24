@@ -28,7 +28,7 @@ function PostProvider({ children }) {
         async function getPosts() {
             try {
                 const { data } = await axios.get(
-                    "http://localhost:8000/api/v1/blogPosts"
+                    "http://localhost:5001/api/v1/blogPosts"
                 );
 
                 dispatch({ type: "setPosts", payload: data });

@@ -1,12 +1,12 @@
 import { useReducer, useEffect } from "react";
 import axios from "axios";
 
-const initialState = { title: "", author: "", content: "" };
+const initialState = { name: "", author: "", content: "" };
 
 function reducer(state, action) {
     switch (action.type) {
-        case "setTitle":
-            return { ...state, title: action.payload };
+        case "setname":
+            return { ...state, name: action.payload };
         case "setAuthor":
             return { ...state, author: action.payload };
         case "setContent":
@@ -14,7 +14,7 @@ function reducer(state, action) {
         case "setBlog":
             return {
                 ...state,
-                title: action.payload.title,
+                name: action.payload.name,
                 author: action.payload.author,
                 content: action.payload.content,
             };
@@ -24,7 +24,7 @@ function reducer(state, action) {
 }
 
 function EditBlogForm({ blogId, setModalClose }) {
-    const [{ title, author, content }, dispatch] = useReducer(
+    const [{ name, author, content }, dispatch] = useReducer(
         reducer,
         initialState
     );
@@ -33,9 +33,9 @@ function EditBlogForm({ blogId, setModalClose }) {
         async function fetchBlog() {
             try {
                 const { data } = await axios.get(
-                    `http://localhost:8000/api/v1/blogPosts/${blogId}`
+                    `http://localhost:5001/api/v1/blogPosts/${blogId}`
                 );
-                dispatch({ type: "setBlog", payload: data });
+                dispatch({ type: "setBlog", payload: data[0] });
             } catch (error) {
                 console.error("Error fetching blog details!", error);
             }
@@ -48,7 +48,7 @@ function EditBlogForm({ blogId, setModalClose }) {
     async function updateBlog(updatedBlog) {
         try {
             const { data } = await axios.put(
-                `http://localhost:8000/api/v1/blogPosts/${blogId}`,
+                `http://localhost:5001/api/v1/blogPosts/${blogId}`,
                 updatedBlog
             );
             console.log(data);
@@ -60,7 +60,8 @@ function EditBlogForm({ blogId, setModalClose }) {
     function handleSubmit(e) {
         e.preventDefault();
         const updatedBlog = {
-            title,
+            id: blogId,
+            name,
             author,
             content,
         };
@@ -76,20 +77,20 @@ function EditBlogForm({ blogId, setModalClose }) {
             >
                 <div className="inputGroup flex flex-col justify-between items-center gap-3 w-[60%]">
                     <label
-                        htmlFor="title"
+                        htmlFor="name"
                         className="uppercase text-md text-[#1e1e1e]"
                     >
-                        Post title
+                        Post name
                     </label>
                     <input
                         type="text"
-                        value={title}
-                        id="title"
-                        placeholder="Change the post title if needed"
+                        value={name}
+                        id="name"
+                        placeholder="Change the post name if needed"
                         className="w-full px-2 py-1 text-[#1e1e1e] border border-[#1e1e1e] bg-white placeholder-black" // Ensure placeholder is black
                         onChange={(e) =>
                             dispatch({
-                                type: "setTitle",
+                                type: "setname",
                                 payload: e.target.value,
                             })
                         }
