@@ -6,5 +6,5 @@
 
 .inputGroup input:focus,
 textarea:focus {
-  outline-color: lightgrey;
+    outline-color: lightgrey;
 }
