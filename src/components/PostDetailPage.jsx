@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import EditBlogForm from "./EditBlogForm";
+import { usePosts } from "../contexts/PostContext";
 
 export const PostDetailPage = () => {
     const { id } = useParams();
@@ -11,6 +12,7 @@ export const PostDetailPage = () => {
     const [post, setPost] = useState();
     const [modalClose, setModalClose] = useState(false);
     const navigate = useNavigate();
+    const { dispatch } = usePosts();
 
     useEffect(() => {
         setIsLoading(true);
@@ -33,13 +35,17 @@ export const PostDetailPage = () => {
     function handleDelete(e) {
         e.preventDefault();
         async function deletePost(id) {
-            const { data } = await axios.delete(
-                `http://localhost:5001/api/v1/blogPosts/${id}`
-            );
-            console.log(data);
+            try {
+                await axios.delete(
+                    `http://localhost:5001/api/v1/blogPosts/${id}`
+                );
+                dispatch({ type: "removePost", payload: id }); // Dispatch the removal action
+                navigate("/blogs"); // Navigate back to blogs
+            } catch (error) {
+                console.error("Error deleting post", error);
+            }
         }
         deletePost(id);
-        navigate("/blog");
     }
 
     function handleEdit(e) {

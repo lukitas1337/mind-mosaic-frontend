@@ -14,6 +14,11 @@ function reducer(state, action) {
             return { ...state, content: action.payload };
         case "setPosts":
             return { ...state, posts: action.payload };
+        case "removePost": // New action for removing a post
+            return {
+                ...state,
+                posts: state.posts.filter((post) => post.id !== action.payload),
+            };
         default:
             return state;
     }
