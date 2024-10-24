@@ -68,7 +68,7 @@ function EditBlogForm({ blogId, setModalClose }) {
     }
 
     return (
-        <div className="absolute top-[5rem] right-[30%] p-10 font-monda w-[40%] flex flex-col gap-[2.5rem] text-[#1e1e1e] bg-[#ffffff] justify-between items-center border border-[#1e1e1e]">
+        <div className="absolute top-[5rem] md:right-[30%] p-10 font-monda w-[95%] md:w-[30%] flex flex-col gap-[2.5rem] text-[#1e1e1e] bg-[#ffffff] justify-between items-center border border-[#1e1e1e]">
             <h2 className="text-lg uppercase text-[#1e1e1e]">Edit Post</h2>
             <form
                 className="flex flex-col justify-between items-center gap-7 w-full"

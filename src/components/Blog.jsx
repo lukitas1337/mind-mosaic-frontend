@@ -3,11 +3,9 @@ import CreateBlogForm from "./CreateBlogForm";
 
 const Blog = () => {
     return (
-        <div>
-            <div className="blogsContainer flex  bg-[#1e1e1e]">
-                <BlogCardsView />
-                <CreateBlogForm />
-            </div>
+        <div className="blogsContainer flex flex-col items-center  bg-[#1e1e1e] md:flex-row md:items">
+            <BlogCardsView />
+            <CreateBlogForm />
         </div>
     );
 };

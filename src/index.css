@@ -8,7 +8,3 @@
 textarea:focus {
     outline-color: lightgrey;
 }
-
-.blogsContainer {
-    height: 90vh;
-}

@@ -25,7 +25,7 @@ function CreateBlogForm() {
         createNewBlog(newBlog);
     }
     return (
-        <div className="p-10 font-monda w-[30%] flex flex-col gap-[2.5rem] text-white bg-[#1e1e1e] justify-between items-center border-l-2 border-white">
+        <div className="p-10 font-monda w-[100%] md:w-[30%] flex flex-col gap-[2.5rem] text-white bg-[#1e1e1e] justify-between items-center md:border-l-2 md:border-white">
             <h2 className="text-lg uppercase">New Blog Post</h2>
             <form
                 className="flex flex-col justify-between items-center gap-7 w-full"

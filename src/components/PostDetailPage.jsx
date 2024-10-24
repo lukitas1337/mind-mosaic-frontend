@@ -58,7 +58,7 @@ export const PostDetailPage = () => {
                 <div>
                     <div className="bg-black text-white rounded-sm text-justify flex justify-center items-center flex-col  h-screen w-auto font-monda p-6 ">
                         <div
-                            className="border h-2/3 w-1/2 p-6"
+                            className="border h-2/3 md:w-1/2 w-[90%] p-6"
                             style={{
                                 display: "flex",
                                 flexDirection: "column",
